@@ -38,7 +38,7 @@ static inline int c_utf8_word_is_ascii(size_t word) {
  */
 _c_public_ void c_utf8_verify_ascii(const char **strp, size_t *lenp) {
         const char *str = *strp;
-        size_t len = lenp ? *lenp : (size_t)-1;
+        size_t len = lenp ? *lenp : strlen (str);
 
         while (len > 0 && c_load_8(str, 0) < 128) {
                 if ((void*)c_align_to((unsigned long)str, sizeof(size_t)) == str) {
@@ -105,7 +105,7 @@ out:
  */
 _c_public_ void c_utf8_verify(const char **strp, size_t *lenp) {
         const char *str = *strp;
-        size_t len = lenp ? *lenp : (size_t)-1;
+        size_t len = lenp ? *lenp : strlen (str);
 
         /* See Unicode 10.0.0, Chapter 3, Section D92 */
 

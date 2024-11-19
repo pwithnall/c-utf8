@@ -19,6 +19,9 @@ static void test_api(void) {
 
         c_utf8_verify_ascii(&string1, &n_string1);
         c_utf8_verify(&string2, &n_string2);
+
+        c_utf8_verify_ascii(&string1, NULL);
+        c_utf8_verify(&string2, NULL);
 }
 
 int main(int argc, char **argv) {
